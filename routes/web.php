@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
 
-Route::get('/', function () {
-    return view('upload');
-});
+
+Route::match(['get', 'post'], '/', [ImageController::class, 'upload'])->name('images.upload');
+
+
